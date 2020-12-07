@@ -4,6 +4,10 @@
 		xmlns:local="clr-namespace:ListView_Sample" 
 		x:Class="ListView_Sample.ListView_SamplePage">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Search" Clicked="SearchItem" />
+    </ContentPage.ToolbarItems>
+
     <ListView x:Name="myListView" 
 			  ItemSelected="OnItemSelected">
 		<ListView.ItemTemplate>

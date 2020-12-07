@@ -23,13 +23,13 @@ namespace ListView_Sample
         {
             InitializeComponent();
 
-            var item = new Item
-            {
-                title = "Item blabla",
-            };
+            //var item = new Item
+            //{
+            //    title = "Item blabla",
+            //};
 
-            viewModel = new ItemDetailViewModel(item);
-            BindingContext = viewModel;
+            //viewModel = new ItemDetailViewModel(item);
+            //BindingContext = viewModel;
         }
     }
 }
