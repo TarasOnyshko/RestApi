@@ -16,6 +16,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ItemDetail.xaml.cs">
+      <DependentUpon>ItemDetail.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ListView_SamplePage.xaml.cs">
       <DependentUpon>ListView_SamplePage.xaml</DependentUpon>
     </Compile>
@@ -29,5 +33,11 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Data\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)ItemDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
