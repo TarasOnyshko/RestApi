@@ -5,7 +5,7 @@
 		x:Class="ListView_Sample.ListView_SamplePage">
 
     <ListView x:Name="myListView" 
-			  ItemSelected="Event_ItemSelected">
+			  ItemSelected="OnItemSelected">
 		<ListView.ItemTemplate>
 			<DataTemplate>
 			   <ViewCell>

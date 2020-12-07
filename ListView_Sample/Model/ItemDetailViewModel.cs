@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ListView_Sample.Model
 {
-    class ItemDetailViewModel
+    public class ItemDetailViewModel
     {
         public Item Item { get; set; }
 
