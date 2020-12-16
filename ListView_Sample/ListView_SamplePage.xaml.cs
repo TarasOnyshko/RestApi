@@ -18,23 +18,18 @@ namespace ListView_Sample
             base.OnAppearing();
 
             myListView.ItemsSource = await App.MYitemsManager.GetTasksAsync();
-            await DisplayAlert("done", "yes" + (myListView.ItemsSource as List<Item>).Count, "ok");
+            await DisplayAlert("Done", "Yes" + (myListView.ItemsSource as List<Item>).Count, "Ok");
         }
-        void Event_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
-        {
-            //DisplayAlert("Selected item", "you selected the Item ( " + (e.SelectedItem as Item).title +" )" ,"ok");
-        }
-
+        
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
+            //DisplayAlert("Selected item", "you selected the Item ( " + (e.SelectedItem as Item).title +" )" ,"Ok");
             var item = args.SelectedItem as Item;
             if (item == null)
                 return;
 
             await Navigation.PushAsync(new ItemDetail(new ItemDetailViewModel(item)));
 
-
-            //ItemsListView.SelectedItem = null;
         }
     }
 }
