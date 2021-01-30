@@ -4,24 +4,49 @@
 		xmlns:local="clr-namespace:ListView_Sample" 
 		x:Class="ListView_Sample.ListView_SamplePage">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Search" Clicked="SearchItem" />
-    </ContentPage.ToolbarItems>
+    <!--<ContentPage.ToolbarItems>
+        --><!--<ToolbarItem Text="Search" Clicked="SearchItem" />--><!--
+       
+        
+    </ContentPage.ToolbarItems>-->
 
-    <ListView x:Name="myListView" 
+    <StackLayout>
+        <SearchBar Placeholder="Search items..." TextChanged="SearchBar_TextChanged"/>
+        <ListView x:Name="myListView" 
+			  ItemSelected="OnItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <StackLayout Orientation="Horizontal"
+							     Margin="12">
+                            <Image Source="{Binding url}"></Image>
+                            <Label Text="{Binding title}"></Label>
+                        </StackLayout>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
+
+    <!--<ListView x:Name="myListView" 
 			  ItemSelected="OnItemSelected">
 		<ListView.ItemTemplate>
 			<DataTemplate>
 			   <ViewCell>
 
-					<StackLayout Orientation="Horizontal"
+                    <StackLayout Orientation="Horizontal"
 							     Margin="12">
-						<Image Source="{Binding url}"></Image>
+                        <Image Source="{Binding url}"></Image>
 						<Label Text="{Binding title}"></Label>	
 			        </StackLayout>
 
 				</ViewCell>
 			</DataTemplate>
 		</ListView.ItemTemplate>
-	</ListView>
+	</ListView>-->
+    
 </ContentPage>

@@ -3,12 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ListView_Sample.Model;
+using System.Linq;
 
 namespace ListView_Sample
 {
     public partial class ListView_SamplePage : ContentPage
     {
-        
+        List<Item> ListItems;
+
+
         public ListView_SamplePage()
         {
             InitializeComponent();
@@ -16,8 +19,9 @@ namespace ListView_Sample
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-
-            myListView.ItemsSource = await App.MYitemsManager.GetTasksAsync();
+            ListItems = await App.MYitemsManager.GetTasksAsync();
+            myListView.ItemsSource = ListItems;
+            //myListView.ItemsSource = await App.MYitemsManager.GetTasksAsync();
             await DisplayAlert("Done", "Yes" + (myListView.ItemsSource as List<Item>).Count, "Ok");
         }
         
@@ -30,6 +34,19 @@ namespace ListView_Sample
 
             await Navigation.PushAsync(new ItemDetail(new ItemDetailViewModel(item)));
 
+        }
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(e.NewTextValue))
+            {
+                myListView.ItemsSource = ListItems;
+            }
+
+            else
+            {
+                myListView.ItemsSource = ListItems.Where(x => x.title.StartsWith(e.NewTextValue));
+            }
         }
     }
 }
